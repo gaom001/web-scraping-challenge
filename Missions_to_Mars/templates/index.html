@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<!-- Jumbotron Header -->
+<header class="jumbotron my-4">
+  <h1 class="display-3">Mars: New Home</h1>
+  <p class="lead">Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System after
+    Mercury.</p>
+
+  <span><a href="/scrape" class="btn btn-primary btn-lg" role="button"> GO to Mars Latest information-----></a>
+  </span>
+
+  <header>
+    <body>
+      <!-- Page Content -->
+      <div class="container">
+        <ul>
+          <li>
+            <h2>Featured Mars Image</h2>
+            <img src="{{mars_data.featured_image_url}}" alt="featured" width="500" ,height="500">
+          </li>
+
+          <li>
+            <h2>Latest Mars News</h2>
+            <h3>{{mars_data.news_title}}</h3>
+            <h4>{{mars_data.news_p}}</h4>
+          </li>
+
+          <li>
+            <h2>Current Weather on Mars</h2>
+            <h3>{{mars_data.mars_twitter}}</h3>
+          </li>
+
+          <li>
+            <h2>Mars Hemispheres</h2>
+            {% for item in mars_data.hemispher_image_url_list %}
+            <div class="row">
+              <div class="col-3">
+                <div class="card">
+                  <img class="card-img" src="{{item.img_url}}" alt="..." width="200" ,height="200">
+                  <div class="card-img-overlay overlay-grey text-white d-flex justify-content-center align-items-end">
+                    <p>{{item.title}}<p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </li>
+
+          <li>
+            <h2>Mars Facts</h2>
+            {{mars_data.table | safe}}
+          </li>
+        </ul>
+      </div>
+
+      <!-- Footer -->
+      <footer class="py-5 bg-dark">
+        <div class="container">
+          <p class="m-0 text-center text-white">@Copyright MING GAO SMU 2020 </p>
+        </div>
+        <!-- /.container -->
+      </footer>
+
+
+    </body>
+
+</html>
